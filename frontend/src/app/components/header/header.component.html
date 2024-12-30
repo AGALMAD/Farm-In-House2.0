@@ -44,8 +44,15 @@
 </div>
 -->
 
-<header>
-    <ul>
+<header class="flex items-center justify-between p-4">
+
+    <!--Logo-->
+    <div class="flex items-center">
+        <img id="logo" class="h-14" src="assets/images/Logo.png" alt="Logo" [routerLink]="''">
+    </div>
+
+    <!--Navegación-->
+    <ul class="flex space-x-8">
         <li>
             <h2 class="text" (click)="goToRoute('product-list/frutas')">Frutas</h2>
         </li>
@@ -58,31 +65,19 @@
         <li>
             <h2 class="text" (click)="goToRoute('about-us')">Sobre Nosotros</h2>
         </li>
-
     </ul>
 
-    <div>
-        <h2 class="text" (click)="goToRoute('shopping-cart')"><i id="cart" class="fa-solid fa-cart-shopping"></i>
-            <span class="bg-[#9A2215] text-[#FFFFFF] rounded-full relative -bottom-5.5 left-5.5 text-[15px] size-5 flex justify-center items-center">{{ shoppingCartService.contProduct }}</span>
+    <!--Carrito y Login-->
+
+    <div class="flex items-center space-x-4">
+        <h2 class="text relative" (click)="goToRoute('shopping-cart')"> 
+            <i class="fa-solid fa-cart-shopping text-4xl"></i> 
+            <span class="bg-[#9A2215] text-[#FFFFFF] rounded-full absolute top-0 left-6 text-[15px] w-[15px] h-[15px] flex justify-center items-center">
+                {{ shoppingCartService.contProduct }} 
+            </span> 
         </h2>
-
-        @if (jwt != "") {
-
-            <div>
-                <i id="person-icon" class="fa-solid fa-user"></i>
-                <p>{{userService.userName}}</p>
-            </div>
-        }
-        @else {
-            <div (click)="goToRoute('login')">
-                <i id="person-icon" class="fa-solid fa-user"></i>
-            </div>
-        }
-
-    
-    
-    
     </div>
+
 
 
 
