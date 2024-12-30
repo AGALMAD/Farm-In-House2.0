@@ -1,3 +1,4 @@
+<!--
 <div>
     <div id="black">
         @if(buttonChange) {
@@ -41,4 +42,48 @@
         }
     </div>
 </div>
+-->
 
+<header>
+    <ul>
+        <li>
+            <h2 class="text" (click)="goToRoute('product-list/frutas')">Frutas</h2>
+        </li>
+        <li>
+            <h2 class="text" (click)="goToRoute('product-list/verduras')">Verduras</h2>
+        </li>
+        <li>
+            <h2 class="text" (click)="goToRoute('product-list/carnes')">Carnes</h2>
+        </li>
+        <li>
+            <h2 class="text" (click)="goToRoute('about-us')">Sobre Nosotros</h2>
+        </li>
+
+    </ul>
+
+    <div>
+        <h2 class="text" (click)="goToRoute('shopping-cart')"><i id="cart" class="fa-solid fa-cart-shopping"></i>
+            <span class="bg-[#9A2215] text-[#FFFFFF] rounded-full relative -bottom-5.5 left-5.5 text-[15px] size-5 flex justify-center items-center">{{ shoppingCartService.contProduct }}</span>
+        </h2>
+
+        @if (jwt != "") {
+
+            <div>
+                <i id="person-icon" class="fa-solid fa-user"></i>
+                <p>{{userService.userName}}</p>
+            </div>
+        }
+        @else {
+            <div (click)="goToRoute('login')">
+                <i id="person-icon" class="fa-solid fa-user"></i>
+            </div>
+        }
+
+    
+    
+    
+    </div>
+
+
+
+</header>
