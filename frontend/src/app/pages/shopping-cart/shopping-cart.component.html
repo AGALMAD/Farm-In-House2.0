@@ -1,0 +1,75 @@
+<!--<app-header-shop></app-header-shop>-->
+<app-header></app-header>
+<div class="main">
+    <div id="cartCounter">
+        <h2 class="cartCounter-title">Mi carrito</h2>
+        @if(shoppingCartService.shoppingCartProducts.length == 1){
+            <h4 class="cartCounter-info">{{shoppingCartService.shoppingCartProducts.length}} artículo</h4>
+        }
+        @else {
+            <h4 class="cartCounter-info">{{shoppingCartService.shoppingCartProducts.length}} artículos</h4>
+        }
+    </div>
+    <div class="information">
+        <div class="basket">
+            @for (product of shoppingCartService.shoppingCartProducts; track product.id){
+            <div class="basket-products">
+                <div class="basket-products-product">
+                    <img class="basket-products-image" [src]="product.image.replace('/images//images/', '/images/')" alt="">
+                    <h2 class="basket-products-stock">Stock : {{product.stock}}</h2>
+                </div>
+                <h2></h2>
+                <div class="basket-products-information">
+                    
+                    <div class="basket-products-information-price">
+                        <h2 class="basket-products-information-title">{{product.name}}</h2>
+                        <h3>Total: {{(product.total*product.price) | eurosToCents}}</h3>
+                        <h3>Precio por kg {{product.price | eurosToCents}}</h3>
+
+                    </div>
+
+                    <div class="basket-products-information-quantity-modifier">
+                        <button class="basket-products-information-Button" (click)="shoppingCartService.deleteProduct(product.id)"><i class="fa-solid fa-trash"></i></button>
+
+                        <div class="quantity-modifier">
+                            <app-quantity-modifier 
+                            [productId]="product.id" 
+                            [count]="product.total"   
+                            (countChange)="onCountChange($event)">
+                            </app-quantity-modifier> 
+                        </div>
+                        
+                        
+                    </div>
+
+
+                    
+                </div>
+            </div>
+            }
+            @empty 
+            {
+            <p>No hay productos en el carrito</p>
+            }
+        </div>
+        <div class="final-price">
+            <h2 class="final-price-title">Resumen</h2>
+            <div class="final-price-price">
+                <h3>Total:</h3>
+                <h3>{{totalprice()| eurosToCents}}</h3>
+            </div>
+            
+            <hr>
+
+            <div class="final-price-buttons">
+                <button class="final-price-button-card" (click)="pay('card')">Pagar con tarjeta  
+                    <img src="assets\shoppingCart\cartIcon.png" alt="">
+                </button>
+                <button class="final-price-button-Etherium" (click)="pay('eth')">Pagar con Etherium
+                    <img src="assets\shoppingCart\ethereumIcon.png" alt="">
+                </button>
+            </div>
+            
+        </div>
+    </div>
+</div>

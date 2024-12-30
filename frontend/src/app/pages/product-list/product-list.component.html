@@ -1,0 +1,74 @@
+<div class="header">
+    <app-header></app-header>
+</div>
+
+<div class="body">
+    <div class="sort-buttons">
+        <div class="search-bar">
+            <app-search-bar (newItemEvent)="getSearchedProducts($event)" [query]="this.querySelector.search"></app-search-bar>
+        </div>
+
+        <div>
+            <select id="order-by" (change)="order()">
+                <option value="name-asc">Nombre ascendente</option>
+                <option value="name-desc">Nombre descendiente</option>
+                <option value="price-asc">Precio ascendente</option>
+                <option value="price-desc">Precio descendiente</option>
+            </select>
+        </div>
+    </div>
+
+
+    @if (allProducts != null){
+    <div id="product-list">
+        @for (product of allProducts; track product.id) {
+
+        <div class="product-card" >
+            <div class="product-card-name">{{product.name}}</div>
+            <div class="product-card-image"><img class="image" [src]="product.image.replace('images/images/images/images/', '/images/')"></div>
+            <div class="product-card-price">Precio : {{product.price | eurosToCents }}</div>
+            <p>Media de reseñas: {{ product.average | number:'1.1-1' }} <i class="fa-regular fa-star fa-flip fa-lg" style="color: #FFD43B;"></i></p>
+            @if (product.stock > 0) {
+            <div class="product-card-stock">Stock: {{ product.stock }} KG</div>
+            }
+            @else {
+            <div class="product-card-no-stock">No hay stock</div>
+            }
+            <button class="product-card-button" (click)="goToProduct(product.id)">Más detalles</button>
+        </div>
+        }
+    </div>
+    }@else {
+    <div class="loading">Cargando...</div>
+    }
+    @if (allProducts == null){
+    <div class="loading">No hay resultados</div>
+    }
+
+    <div class="pagination-position">
+        <div class="pagination">
+            <button (click)="goToFirstPage()" id="first-button">&lt;&lt;</button>
+            <button id="prev-button" (click)="previousPage()">&lt;</button>
+            <div id="pagination-numbers">
+                @if(totalPages == 0)
+                {
+                0 de 0
+                }
+                @else
+                {
+                {{ currentPage }} de {{ totalPages }}
+                }
+            </div>
+            <button id="next-button" (click)="nextPage()">&gt;</button>
+            <button (click)="goToLastPage()" id="last-button">&gt; &gt;</button>
+
+            <!-- Selector para elegir el número de productos por página -->
+            <select id="products-per-page" (change)="newNumberOfProducts()">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+    </div>
+</div>

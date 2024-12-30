@@ -1,0 +1,60 @@
+<app-header [name]="userService.userName"></app-header>
+<div class="user-data-container">
+    <h2>Inicio de sesión y seguridad</h2>
+    @if(user){
+    <p class="user-data"><b>Nombre: </b>{{user.name}}</p>
+    <p class="user-data"><b>Correo: </b>{{user.email}}</p>
+    <p class="user-data"><b>Dirección: </b>{{user.address}}</p>
+    <p class="user-data"><b>Rol: </b>{{user.role}}</p>
+    @if(user.role=="Admin"){
+        <button class="btn-data" [routerLink]="'/adminstration'" >Vista admin</button>
+    }
+    <button class="btn-data" (click)="formState = 'editData'">Editar datos del usuario</button>
+    @if (formState == 'editData') {
+    <div class="modal">
+        <h3>Editar datos</h3>
+        <form>
+            <label>Introduce tu nuevo nombre:</label>
+            <input type="text" class="input-new-data" id="new-name">
+            <label>Introduce tu nuevo correo:</label>
+            <input type="text" class="input-new-data" id="new-email">
+            <label>Introduce tu nueva dirección:</label>
+            <input type="text" class="input-new-data" id="new-address">
+            <label>Introduce tu nueva contraseña:</label>
+            <input type="password" class="input-new-data" id="new-password">
+            <button class="btn-data" id="save" (click)="saveUserData()">Guardar nuevos datos</button>
+            <button type="button" (click)="closeForm()">Cancelar</button>
+        </form>
+    </div>
+    }
+
+    <h2>Listado de pedidos</h2>
+    @if(orders.length != 0 && orders){
+    @for (order of orders; track order.id){
+    <div class="order-container">
+        <h3 class="order-date">Fecha del pedido: <b>{{ order.createdAt | correctDate }}</b></h3>
+        @for(productToBuy of order.wishlist.products; track productToBuy.id){
+            <div class="order-product">
+                <img class="order-product-img" [src]="productToBuy.product.image">
+                <div class="order-product-data">
+                    <p class="order-product-data-title">{{productToBuy.product.name}}</p>
+                    <p>Cantidad: <b>{{productToBuy.quantity}}</b></p>
+                    <p>Precio el kg: <b>{{productToBuy.purchasePrice | eurosToCents}}</b></p>
+                </div>
+            </div>
+        }
+        
+        @if(order.paymentTypeId == 1){
+        <h3 class="order-price">Método de pago: <b>Tarjeta</b> | <span class="order-price-total">Total pagado: <b>{{order.total | eurosToCents}}</b></span></h3>
+        }@else {
+        <h3 class="order-price">Método de pago: <b>Ethereum</b> | <span class="order-price-total">Total pagado: <b>{{order.total | eurosToCents}}</b></span> | <b>{{order.totalETH}} ETH</b></h3>
+        }
+
+    </div>
+
+    }
+    }@else {
+    <h3>No se realizó ningun pedido</h3>
+    }
+
+    }

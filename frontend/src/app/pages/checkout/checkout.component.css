@@ -1,0 +1,155 @@
+.main{
+    min-height: 100vh;
+}
+
+
+.information{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.basket{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap:20px;
+
+
+}
+.basket-products{
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    gap: 20px;
+    border-radius: 8px;
+    padding: 5%;
+    border: solid grey 2px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+.basket-products-product{
+    text-align: center;
+}
+.basket-products-product h2{
+    color: #5b9636;
+}
+
+.basket-products-image{
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    border-radius: 25px;
+
+    
+}
+
+.basket-products-information-deleteButton{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+}
+.basket-products-information h4{
+    color: rgb(49, 49, 49);
+}
+.final-price{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    height: auto;
+    border: solid grey 2px;
+    border-radius: 8px;
+    margin-left: 5%;
+    padding: 2%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 225px;
+
+}
+
+.final-price-buttons{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+hr{
+    width: 50%;
+    border: 2px dopped;
+}
+.final-price-button-card{
+    width: 50%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: auto;
+    border-radius: 8px;
+    background-color: #99C080;
+    cursor: pointer;
+    font-weight: bold;
+}
+.final-price-button-Etherium{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: #99C080;
+    cursor: pointer;
+}
+.final-price-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+}
+.products-description-anadir{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/*responsive*/
+@media (max-width: 1120px){
+    .information{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .final-price{
+        width: 300px;
+        margin-left: 0;
+        height: 225px;
+    }
+}
+
+@media (max-width: 425px){
+    .basket-products{
+        flex-direction: column;
+        width: 225px;
+        height: 40%;
+    }
+    .final-price{
+        width: 225px;
+        height: 225px;
+    }
+}
+
+#payment-window
+{
+    width: 100%;
+    height: 100%;
+}
+
+#load {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

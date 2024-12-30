@@ -1,0 +1,269 @@
+/* Main section div */
+#black {
+    height: 75px;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.red {
+    height: 100%;
+    width: 5%;
+    background-color: #A82222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.red:hover
+{
+    background-color: rgb(99, 29, 29);
+}
+
+#person-icon {
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+}
+.text {
+    font-weight: normal;
+    transition: all 0.3s;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+.text:hover {
+
+    color: rgb(170, 161, 161);
+}
+.text-welcome{
+    font-size: 20px;
+    transition: all 0.3s;
+    color: rgb(255, 255, 255);
+    background-color: #99C080;
+    /*padding: 20.5px;*/
+    line-height: 75px;
+    height: 100%;
+}
+.logo {
+    width: 5%;
+    cursor: pointer;
+}
+#menu {
+    margin-left: 2%;
+    visibility: hidden;
+    display: none;
+    color: white;
+}
+
+.dropdown{
+    height: 100%;
+    width: 10%;
+    background-color: #99C080;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.view-dropdown{
+    margin-top: auto;
+    height: 150px;
+    width: 10%;
+    background-color: #99C080;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.view-dropdown div 
+{
+    width: 100%;
+    text-align: center;
+}
+
+#arrow{
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+}
+.dropdown-list{
+    display: none;
+    list-style-type: none;
+}
+p{
+    width: 100%;
+    height: 100%;
+}
+.dropdown-list-button{
+    height: 25%;
+    width: 100%;
+}
+
+.view-dropdown-list{
+    display: block;
+    list-style-type: none;
+    padding-top: 20px;
+}
+#cart{
+    position: relative;
+    top: 10px;
+}
+.quantity{
+    background-color: #A82222;
+    border-radius: 100%;
+    position: relative;
+    bottom: 22px;
+    left: 22px;
+    font-size: 15px;
+    width: 15px;
+    height: 15px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+#cart-responsive{
+    visibility: hidden;
+}
+.quantity-responsive{
+    visibility: hidden;
+}
+.easteregg{
+   display: none;
+}
+h1{
+    display: none;
+}
+
+/* Responsive */
+@media (min-width: 2000px){
+    .logo{
+        width: 4%;
+    }
+}
+
+@media (max-width: 1100px){
+    .dropdown{
+        width: 15%;
+    }
+    .view-dropdown{
+        width: 15%;
+    }
+}
+
+@media (max-width: 900px) {
+    .red {
+        width: 10%;
+    }
+    .logo {
+        width: 9%;
+    }
+    .dropdown{
+        width: 20%;
+    }
+    .view-dropdown{
+        width: 20%;
+    }
+}
+@media (max-width: 850px) {
+    .dropdown{
+        width: 30%;
+    }
+    .view-dropdown{
+        width: 30%;
+    }
+    .undisplay-dropdown{
+        display: none;
+    }
+    .red {
+        width: 14%;
+        height: 100%;
+        background-color: #A82222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .redVisible {
+        display: none;
+    }
+    .textVisible {
+        visibility: visible;
+        transition: all 0s;
+        font-weight: normal;
+        color: white;
+    }
+    .text {
+        visibility: hidden;
+        display: none;
+    }
+    #menu {
+        visibility: visible;
+        display: flex;
+        font-size: 25px;
+    }
+    .logo {
+        width: 65px;
+    }
+    #blackVisible {
+        flex-direction: column;
+        height: 300px;
+        justify-content: space-around;
+        background-color: black;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .text-welcome{
+        display: none;
+    }
+    #cart{
+        display: none;
+    }
+    .quantity{
+        display: none;
+    }
+    #cart-responsive{
+        position: relative;
+        top: 10px;
+        color: white;
+        visibility: visible;
+    }
+    .quantity-responsive{
+        background-color: #A82222;
+        border-radius: 100%;
+        position: relative;
+        bottom: 30px;
+        left: 28px;
+        font-size: 15px;
+        width: 20px;
+        height: 20px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        color: white;
+        visibility: visible;
+    }
+    .easteregg{
+        display:block;
+    }
+    h1{
+        display: block;
+    }
+}
+
+.not-display
+{
+    display: none;
+}

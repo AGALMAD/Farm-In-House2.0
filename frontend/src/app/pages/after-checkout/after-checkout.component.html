@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="body">
+    @if (error != "") {
+        <p>Código de error: {{ error }}</p>
+    }
+    @if (lastOrder)
+    {
+
+    <div id="title">
+        <h1>Muchas gracias por su compra {{user?.name}}, que la disfrute<img
+                src="assets/afterCheckout/corazon.png" alt="corazon" /></h1>
+    </div>
+
+    <div class="information">
+        <div class="purchased ">
+            @for (productPurchased of lastOrder.wishlist.products; track productPurchased.id){
+            <div class="purchased-products">
+                <img class="purchased-products-image" [src]="productPurchased.product.image.replace('/images//images/', '/images/')" alt="">
+
+                <div class="purchased-products-information">
+                    <h2>{{productPurchased.product.name}} {{productPurchased.quantity}}kg</h2>
+                    <h3>Total: {{(productPurchased.quantity * productPurchased.product.price) | eurosToCents}}</h3>
+                    <h3>Precio por kg {{productPurchased.product.price | eurosToCents}}</h3>
+                </div>
+            </div>
+            }
+
+        </div>
+
+
+        <div class="final-price">
+            <h1>Resumen</h1>
+            <div class="final-price-price">
+                <h2>Total:</h2>
+                <div class="total-price">
+                @if (lastOrder.paymentTypeId == 1) {
+                    <h2>{{lastOrder.total | eurosToCents}}</h2>
+                }
+                @else {
+                    <h2>{{lastOrder.total | eurosToCents}} | {{lastOrder.totalETH}} ETH</h2>
+                }
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    }
+    @else
+    {
+    <app-loading></app-loading>
+    }
+
+</div>

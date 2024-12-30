@@ -1,0 +1,472 @@
+.main{
+    min-height: 100vh;
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    background-position: top center;
+    background-size: cover;
+}
+
+#progressBar{
+    width: 100%;
+    text-align: center;
+}
+
+#progressBar img{
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+#cartCounter{
+    margin: 0 10%;
+}
+
+
+.information{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin: 0 7%;
+
+}
+.basket{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap:5%;
+
+
+}
+.basket-products{
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    gap: 5%;
+    border-radius: 8px;
+    padding: 5%;
+    border: solid grey 2px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    margin: 2%;
+    align-items:first center;
+    justify-content: center;
+    height: 100%;
+}
+
+.basket-products-product{
+    text-align: center;
+}
+.basket-products-stock{
+    color: #5b9636;
+}
+
+.basket-products-image{
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    border-radius: 25px;
+    border: solid black 2px;
+    margin-top: 10%;
+
+    
+}
+
+.basket-products-product {
+    width: 50%;
+
+}
+
+.basket-products-information {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;   
+    font-size: 1.2rem;
+}
+
+.basket-products-information-price{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left; 
+}
+
+
+.basket-products-information-quantity-modifier {
+    width: 100%;
+    display: flex;
+    align-items: center; 
+}
+
+.quantity-modifier{
+    width: 100%;
+}
+
+.basket-products-information-Button{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    background-color: #99C080;
+}
+
+.basket-products-information-Button:hover {
+    background-color: #789963;
+}
+
+
+.basket-products-information-functions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5%;
+}
+.basket-products-information-title{
+    width: 100%;
+}
+.basket-products-information-functions-input{
+    width: 50%;
+    height: 25px;
+    font-size: 20px;
+}
+.final-price{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    height: auto;
+    border: solid grey 2px;
+    border-radius: 8px;
+    margin-left: 5%;
+    padding: 2%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+.final-price-buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+hr{
+    width: 50%;
+    border: 2px dopped;
+}
+
+
+.final-price-button-card,
+.final-price-button-Etherium {
+    font-weight: bold; 
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: #99C080;
+    cursor: pointer;
+}
+
+
+
+.final-price-button-card  img{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.final-price-button-Etherium img{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+
+
+.final-price-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+}
+.products-description-anadir{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+@media (max-width: 1300px) {
+    .main {
+        padding: 0 5%;
+    }
+
+    #cartCounter {
+        margin: 0 5%;
+        text-align: center;
+    }
+
+    .cartCounter-title{
+        font-size: 40px;
+    }
+
+    .cartCounter-info{
+        font-size: 35px;
+    }
+
+    .info-order{
+        font-size: 40px;
+    }
+
+    .information {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .basket {
+        width: 100%;
+        align-items: center;
+    }
+
+    .basket-products {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        gap: 3%;
+        padding: 5%;
+        width: 50%;
+    }
+
+    .basket-products-product {
+        margin-bottom: -10%;
+    }
+
+    .basket-products-stock {
+        font-size: 40px;
+    }
+
+    .basket-products-information {
+        grid-template-columns: 100%;
+        margin-bottom: 5%;
+    }
+
+    .basket-products-image {
+        max-width: 150px;
+        height: 150px;
+        margin-bottom: 15px;
+    }
+
+    .basket-products-information-price {
+        margin-bottom: 15%;
+        font-size: 1.8rem;
+    }
+
+    .basket-products-information-functions {
+        gap: 10px;
+        text-align: center;
+        height: 50px;
+
+    }
+    .basket-products-information-Button{
+        width: 20%;
+        height: 50px;
+        font-size: 2rem;
+    }
+
+    .basket-products-information-functions-input {
+        width: 50%;
+        height: 30px;
+        padding: 2%;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .final-price {
+        font-size: 2.5rem;
+        width: 50%;
+        margin: 0 auto;
+        padding: 5%;
+        margin: 0;
+    }
+
+    .final-price-title{
+        font-size: 50px;
+    }
+
+    .final-price-price h3{
+        font-size: 35px;
+    }
+
+    .final-price-buttons{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .final-price-buttons button{
+        font-size: 20px;
+        width: 90%;
+    }
+
+    .final-price-button-card{
+        font-size: 2.5rem;
+
+    }
+
+    .final-price-button-card img{
+        width: 50px;
+        height: 50px;
+    }
+    .final-price-button-Etherium{
+        font-size: 2.5rem;
+        margin-top: 5%;
+    }
+
+    .final-price-button-Etherium img{
+        width: 50px;
+        height: 50px;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+    .main {
+        padding: 0 2%;
+    }
+
+    .info-order{
+        font-size: 30px;
+    }
+
+    .cartCounter-title{
+        font-size: 30px;
+    }
+
+    .cartCounter-info{
+        font-size: 25px;
+    }
+
+    #progressBar img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .basket-products {
+        padding: 5%;
+        width: 50%;
+    }
+
+    .basket-products-stock {
+        font-size: 30px;
+    }
+
+    .basket-products-information-functions {
+        gap: 15px;
+    }
+
+    .basket-products-information-title{
+        font-size: 30px;
+    }
+
+    .basket-products-information-price h3{
+        font-size: 30px;
+    }
+
+    .basket-products-information-Button{
+        height: 35px;
+        width: 35px;
+        font-size: 20px;
+    }
+
+    .basket-products-information-functions-input{
+        height: 20px;
+        font-size: 25px;
+    }
+
+    .final-price-title{
+        font-size: 30px;
+    }
+
+    .final-price-price h3{
+        font-size: 25px;
+    }
+
+    .final-price-buttons button{
+        font-size: 15px;
+        width: 80%;
+    }
+
+    .final-price-buttons button img{
+        width: 25px;
+        height: 25px;
+    }
+
+
+}
+@media (max-width: 500px){
+    .info-order{
+        font-size: 20px;
+    }
+
+    .cartCounter-title{
+        font-size: 20px;
+    }
+
+    .cartCounter-info{
+        font-size: 15px;
+    }
+
+    .final-price{
+        width: 80%;
+    }
+
+    .final-price-title{
+        font-size: 25px;
+    }
+
+    .final-price-price h3{
+        font-size: 20px;
+    }
+
+    .final-price-button-card{
+        font-size: 1.5rem;
+        height: 100%;
+    }
+    .final-price-button-Etherium{
+        font-size: 1.5rem;
+        height: 100%;
+    }
+    .basket-products{
+        width: 80%;
+    }
+    .basket-products-product{
+        width: 80%;
+    }
+    .basket-products-stock{
+        font-size: 25px;
+    }
+
+    .basket-products-information-title{
+        font-size: 20px;
+    }
+
+    .basket-products-information-price h3{
+        font-size: 20px;
+    }
+
+}
