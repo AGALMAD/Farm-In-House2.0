@@ -16,7 +16,7 @@ public class ProductDto
 
     public double Average { get; set; }
 
-    public string Image { get; set; }
+    public List<string> Images { get; set; } = new List<string>();
 
     public int CategoryId { get; set; }
 

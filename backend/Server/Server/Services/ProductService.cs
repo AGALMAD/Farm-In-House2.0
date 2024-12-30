@@ -51,16 +51,6 @@ namespace Server.Services
             return _unitOfWork.ProductRepository.GetAllProductsByCategory(pageNumber,pageSize,products);
         }
 
-        public IEnumerable<Product> AddCorrectPath(IEnumerable<Product> products)
-        {
-            return _productMapper.AddCorrectPath(products);
-        }
-
-        public Product AddCorrectPath(Product product)
-        {
-            return _productMapper.AddCorrectPath(product);
-        }
-
         public IEnumerable<ProductDto> ToDto(IEnumerable<Product> products)
         {
             return _productMapper.ToDto(products);

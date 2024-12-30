@@ -117,7 +117,7 @@ namespace Server.Controllers
 
                 ImageService imageService = new ImageService();
 
-                product.Image = "/" + await imageService.InsertAsync(newProduct.Image);
+                product.Images.Add( "/" + await imageService.InsertAsync(newProduct.Image));
                 Product savedProduct = await _productService.InsertProduct(product);
                 return _productService.ToDto(savedProduct);
             }
@@ -179,7 +179,7 @@ namespace Server.Controllers
                 if (productToUpdate.Image != null)
                 {
                     ImageService imageService = new ImageService();
-                    product.Image = "/" + await imageService.InsertAsync(productToUpdate.Image);
+                    product.Images.Add("/" + await imageService.InsertAsync(productToUpdate.Image));
                 }
                 
                 await _productService.UpdateProduct(product);
