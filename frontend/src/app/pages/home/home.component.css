@@ -1,21 +1,14 @@
 header{
-    position: -webkit-sticky; /* Para compatibilidad con Safari */
     position: sticky;
     top: 0;
 }
 
-.main {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#principal{
+    background-image: url("/assets/main/home.jpg");
 }
 
-.main-content {
-    border: solid black 2px;
-    max-width: 1000px;
-    width: 100%;
-    height: 200vh;
-    background-color: aquamarine;
-
+.product{
+    
 }
+
+
