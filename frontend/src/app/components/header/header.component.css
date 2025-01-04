@@ -270,15 +270,6 @@ h1{
 */
 
 
-header {
-    position: -webkit-sticky; /* Para compatibilidad con Safari */
-    position: sticky;    
-    top: 0;
-    padding: 10px 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-}
-
 header::before {
     content: '';
     position: absolute;
@@ -296,44 +287,26 @@ header.scrolled::before {
     background-color: rgba(238, 238, 238, 0.614);
 }
 
+h2{
+    cursor: pointer;
+}
+
 header ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 5%;
 }
 
-header li {
-    display: inline;
+header li{
+    transition: 300ms;
+    font-size: 1.3rem;
 }
 
-header .text {
-    color: #203219;
-    text-decoration: none;
-    font-size: 18px;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
+header li:hover{
+    color: #d7d9c5;
+    font-size: 1.2rem;
 }
+   
 
-header .text:hover {
-    color: #747670;
-}
-
-
-.quantity{
-    background-color: #9A2215;
-    border-radius: 100%;
-    position: relative;
-    bottom: 22px;
-    left: 22px;
-    font-size: 15px;
-    width: 15px;
-    height: 15px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}

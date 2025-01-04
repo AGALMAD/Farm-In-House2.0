@@ -44,41 +44,50 @@
 </div>
 -->
 
-<header class="flex items-center justify-between p-4">
-
+<header class="top-0 z-50 flex items-center justify-between w-full p-4 bg-[#253125] text-[#e3f08f] font-bold">
     <!--Logo-->
-    <div class="flex items-center">
-        <img id="logo" class="h-14 "  src="assets/images/Logo.png" alt="Logo" [routerLink]="''">
+    <div class="flex items-center ml-3">
+        <img id="logo" class="h-14" src="assets/images/Logo.png" alt="Logo" [routerLink]="''" />
     </div>
 
     <!--Navegación-->
     <ul class="flex space-x-8">
         <li>
-            <h2 class="text" (click)="goToRoute('product-list/frutas')">Frutas</h2>
+            <h2 (click)="goToRoute('product-list/frutas')">Frutas</h2>
         </li>
         <li>
-            <h2 class="text" (click)="goToRoute('product-list/verduras')">Verduras</h2>
+            <h2 (click)="goToRoute('product-list/verduras')">Verduras</h2>
         </li>
         <li>
-            <h2 class="text" (click)="goToRoute('product-list/carnes')">Carnes</h2>
+            <h2 (click)="goToRoute('product-list/carnes')">Carnes</h2>
         </li>
         <li>
-            <h2 class="text" (click)="goToRoute('about-us')">Sobre Nosotros</h2>
+            <h2 (click)="goToRoute('about-us')">Sobre Nosotros</h2>
         </li>
     </ul>
 
     <!--Carrito y Login-->
-
-    <div class="flex items-center space-x-4">
-        <h2 class="text relative" (click)="goToRoute('shopping-cart')"> 
-            <i class="fa-solid fa-cart-shopping text-4xl"></i> 
-            <span class="bg-[#9A2215] text-[#FFFFFF] rounded-full absolute top-0 left-6 text-[15px] w-[15px] h-[15px] flex justify-center items-center">
-                {{ shoppingCartService.contProduct }} 
-            </span> 
+    <div class="flex items-center space-x-8 mr-5">
+        <h2 class="relative" (click)="goToRoute('shopping-cart')">
+            <i class="fa-solid fa-cart-shopping text-3xl"></i>
+            <span
+                class="bg-[#9A2215] text-[#FFFFFF] rounded-full absolute top-[-10px] left-6 p-3 size-4 flex justify-center items-center">
+                {{ shoppingCartService.contProduct }}
+            </span>
         </h2>
+
+        @if (jwt != "") {
+        <h2 class="relative" (click)="goToRoute('login')">
+            <i class="fa-solid fa-user-alt text-3xl"></i>
+        </h2>
+        <h2 class="relative" (click)="deleteToken()">
+            <i class="fa-solid fa-sign-out-alt text-3xl"></i>
+        </h2>
+
+        } @else {
+        <h2 class="relative" (click)="deleteToken()">
+            <i id="person-icon" class="fa-solid fa-user-alt text-3xl text-[#9A2215]"></i>
+        </h2>
+        }
     </div>
-
-
-
-
 </header>
