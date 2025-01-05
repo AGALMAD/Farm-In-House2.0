@@ -2,14 +2,14 @@
     <app-header></app-header>
 </header>
 
-<section id="body">
+<section class="h-[100vh] flex flex-col justify-center items-center  mt-[100px] ">
     <div class="flex flex-row align-center justify-center gap-10 mt-36">
         <div>
             <app-search-bar (newItemEvent)="getSearchedProducts($event)" [query]="this.querySelector.search"></app-search-bar>
         </div>
 
         <div>
-            <select id="order-by" (change)="order()">
+            <select id="order-by" class=" cursor-pointer" (change)="order()">
                 <option value="name-asc">Nombre ascendente</option>
                 <option value="name-desc">Nombre descendiente</option>
                 <option value="price-asc">Precio ascendente</option>
@@ -23,8 +23,8 @@
     <div id="product-list">
         @for (product of allProducts; track product.id) {
 
-        <div class="block w-full h-auto rounded shadow-4xl bg-[#253125] text-[#e3f08f] font-bold p-8" >
-            <div class=" m-8">{{product.name}}</div>
+        <div class="block w-full h-auto rounded shadow-4xl bg-[#253125] text-[#e3f08f] font-bold p-4" >
+            <div class=" text-center mb-4">{{product.name}}</div>
             <img class="w-full h-48 object-cover" [src]="product.images[0]">
             <div class="product-card-price">Precio : {{product.price | eurosToCents }}</div>
             <p>{{ product.average | number:'1.1-1' }} <i class="fa-regular fa-star fa-flip fa-lg" style="color: #FFD43B;"></i> ({{product.reviews.length}})</p>
