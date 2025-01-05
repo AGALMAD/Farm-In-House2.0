@@ -177,7 +177,9 @@ export class ShoppingCartService {
   }
 
   addCorrectPath(product: Product) {
-    product.image = environment.imageRouteBasic + product.image
+    for ( var image of product.images) {
+      image = environment.imageRouteBasic + image 
+    }
     return product
   }
 }

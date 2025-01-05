@@ -26,7 +26,7 @@ export class ProductService {
       const pagedProducts = result.data
       if (pagedProducts.products) {
         for (const product of pagedProducts.products) {
-          product.image = environment.imageRouteBasic + product.image 
+          product.images = product.images.map(image => environment.imageRouteBasic + image);
         }
       }
       return pagedProducts
@@ -40,7 +40,7 @@ export class ProductService {
     const result = await this.api.get<Product>(path, {}, 'json')
     if (result.data) {
       const product: Product = result.data
-      product.image = environment.imageRouteBasic + product.image
+      product.images = product.images.map(image => environment.imageRouteBasic + image);
       return product
     }
     return null

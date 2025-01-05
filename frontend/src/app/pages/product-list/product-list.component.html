@@ -2,7 +2,7 @@
     <app-header></app-header>
 </header>
 
-<div class="body">
+<section id="body">
     <div class="sort-buttons">
         <div class="search-bar">
             <app-search-bar (newItemEvent)="getSearchedProducts($event)" [query]="this.querySelector.search"></app-search-bar>
@@ -23,9 +23,9 @@
     <div id="product-list">
         @for (product of allProducts; track product.id) {
 
-        <div class="product-card" >
+        <div class="w-full h-auto rounded shadow-2xl border border-black" >
             <div class="product-card-name">{{product.name}}</div>
-            <div class="product-card-image"><img class="image" [src]="product.image.replace('images/images/images/images/', '/images/')"></div>
+            <div class="product-card-image"><img class="image" [src]="product.images[0]"></div>
             <div class="product-card-price">Precio : {{product.price | eurosToCents }}</div>
             <p>Media de reseñas: {{ product.average | number:'1.1-1' }} <i class="fa-regular fa-star fa-flip fa-lg" style="color: #FFD43B;"></i></p>
             @if (product.stock > 0) {
@@ -71,4 +71,4 @@
             </select>
         </div>
     </div>
-</div>
+</section>

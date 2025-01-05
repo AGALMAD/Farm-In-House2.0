@@ -1,30 +1,16 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 header{
-    position: -webkit-sticky; /* Para compatibilidad con Safari */
     position: sticky;
     top: 0;
 }
 
-.header{
-    margin-top: 0;
-    width: 100%;
-}
 
-.body{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    background-image: url("../../../../public/background.png");
-    background-repeat: repeat;
-    background-size: 100% auto;
-    background-position: top center;
-    min-height: 100vh;
-}
+/*Búsqueda */
 
 .sort-buttons {
     display: flex;
@@ -61,6 +47,7 @@ header{
 #order-by:hover{
     background-color: #52b118;
 }
+
 option{
     cursor: pointer;
 }
@@ -74,26 +61,29 @@ option{
     color: black;
 }
 
-#product-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 20px; 
-    padding: 20px;
+/*Productos*/
+
+/* En tu archivo CSS */
+#body {
+    display: flex;
+    flex-direction: column; /* Si necesitas que los elementos estén en columna */
+    justify-content: center; /* Alineación vertical */
+    align-items: center; /* Alineación horizontal */
+    height: 100vh; /* Asegúrate de ocupar todo el alto de la ventana */
+    margin: 0; /* Elimina márgenes si hay */
+    padding: 0; /* Elimina padding si hay */
+    text-align: center; /* Opcional, centra el texto */
+    box-sizing: border-box; /* Asegúrate de que el padding no desborde */
 }
 
-.product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    text-decoration: none;
-    color: #333;
-    margin-bottom: 15px;
-    min-height: 350px;
-    background-color: white;
-    justify-content: space-between;
+#product-list {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(350px, 1fr)
+    );
+    gap: 20px;
 }
 
 
@@ -102,11 +92,7 @@ option{
     font-weight: bold;
     margin-bottom: 8px;
 }
-.product-card-image {
-    width: 100%; 
-    max-width: 200px;
-    height: 50%; 
-}
+
 
 .image {
     width: 100%;
@@ -160,7 +146,8 @@ option{
 #star{
     color: yellow;
 }
-/****** Páginación ******/
+
+/****** Paginación ******/
 .pagination-position{
     display: flex;
     flex-direction: column;
