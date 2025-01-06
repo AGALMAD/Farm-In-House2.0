@@ -46,6 +46,9 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     await this.shoppingCartService.saveShoppingCart()
   }
 
+  
+
+
   //Actualiza el contador del producto cuando se actualiza en el componente
   async onCountChange(event: { productId: number, newCount: number }) {
     console.log(this.shoppingCartService.isSaved)

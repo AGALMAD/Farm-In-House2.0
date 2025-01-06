@@ -18,6 +18,54 @@ export class ShoppingCartService {
   constructor(private apiService: ApiService) { }
 
 
+  async addToCart(product: Product, quantity = 1) {
+
+    const count = quantity;
+
+
+    if (this.apiService.jwt == "") {
+      let allProducts: Product[] = []
+      const productsLocalStore = localStorage.getItem("shoppingCart")
+      if (productsLocalStore) {
+        allProducts = JSON.parse(productsLocalStore)
+        const index = allProducts.findIndex(p => p.id === product.id);
+        let newProduct = product
+        if (index != -1) {
+          // Si el producto ya existe en el carrito, se actualiza la cantidad
+          newProduct = allProducts[index];
+          newProduct.total += count;
+        }
+        else {
+          //Si es un nuevo producto lo añade con la cantidad asignada
+          newProduct.total = count;
+          allProducts.push(product);
+        }
+      }
+      else {
+        product.total = count
+        allProducts.push(product)
+      }
+      localStorage.setItem("shoppingCart", JSON.stringify(allProducts))
+
+      //Contador en local storage del número de productos en el carrito
+      this.contProduct = allProducts.length
+
+    }
+    else {
+      localStorage.removeItem("shoppingCart")
+      const cartContent = new CartContent(product.id, count, product)
+      // Envía el objeto `cartContent` directamente, sin envolverlo en un objeto con clave `cartContent`
+      const result = await this.apiService.post("ShoppingCart/addProductOrChangeQuantity", cartContent, { "add": true })
+
+      if (result.data) {
+        this.contProduct = parseInt(result.data)
+      }
+    }
+
+    //this.shoppingCartService.getShoppingCartCount()
+
+  }
+
   getLocalStorageCart() {
     //this.shoppingCartProducts = [];
     const productsRaw = localStorage.getItem("shoppingCart");

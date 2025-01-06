@@ -11,6 +11,7 @@ import { OrdinationDirection } from '../../models/enums/ordination-direction';
 import { QuerySelector } from '../../models/query-selector';
 import { EurosToCentsPipe } from '../../pipes/euros-to-cents.pipe';
 import { CommonModule } from '@angular/common';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -35,6 +36,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   currentPage: number = 1;
 
   constructor(
+    public shoppingCartService : ShoppingCartService,
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private router: Router

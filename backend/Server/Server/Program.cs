@@ -149,7 +149,7 @@ namespace Server
                             Name = "Naranja",
                             Description = "Naranja ecológica, rica en vitamina C, perfecta para zumos y postres.",
                             Price = 300,
-                            Stock = 150,
+                            Stock = 0,
                             Average = 0,
                             Images = new List<string>
                             {
@@ -203,7 +203,7 @@ namespace Server
                             Name = "Fresa",
                             Description = "Fresa ecológica, jugosa y dulce, perfecta para postres y batidos.",
                             Price = 400,
-                            Stock = 120,
+                            Stock = 0,
                             Average = 0,
                             Images = new List<string>
                             {
