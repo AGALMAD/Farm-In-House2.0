@@ -1,35 +1,5 @@
-header{
-    position: sticky;
-    top: 0;
-}
-
-
-/*Búsqueda */
-
-
-
-
-
-
-#order-by:hover{
-    background-color: #52b118;
-}
-
-option{
-    cursor: pointer;
-}
-
-.sort-buttons-button:hover {
-    background-color: #88b070;
-}
-
-.sort-buttons-button i {
-    font-size: 14px;
-    color: black;
-}
 
 /*Productos*/
-
 
 #product-list {
     max-width: 1200px;
@@ -43,39 +13,15 @@ option{
 
 
 
-.loading {
-    display: block;
-    color: #888;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-
 /****** Paginación ******/
-.pagination-position{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    position: sticky;
-}
 
-.pagination button {
+
+#pagination button {
     width: 40px;
     height: 40px;
     border: none;
-    background-color: #99C080; 
-    color: white;
+    background-color: #e3f08f; 
+    color: #253125;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -83,30 +29,10 @@ option{
     transition: background-color 0.3s;
 }
 
-#pagination-numbers {
-    padding: 8px 12px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-}
-
-.products-per-page {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #99C080;
-    background-color: #f1f1f1;
-    color: #333;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.pagination button:hover {
-    background-color: #88b070; 
-}
 
 /*botones desactivados */
-.pagination button:disabled {
-    background-color: #ccc;
+#pagination button:disabled {
+    background-color: #8a8484;
     cursor: not-allowed;
 }
 
