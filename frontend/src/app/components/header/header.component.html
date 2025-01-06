@@ -1,27 +1,35 @@
-<header class="top-0 z-50 flex items-center justify-between w-full h-[100px] p-4 bg-[#253125] text-[#e3f08f] font-bold">
+<header class="top-0 z-[1000] flex items-center justify-between w-full h-[100px] p-4 bg-[#253125] text-[#e3f08f] font-bold">
+    
     <!--Logo-->
-    <div class="flex items-center ml-3">
-        <img id="logo" class="h-14" src="assets/images/Logo.png" alt="Logo" [routerLink]="''" />
+    <div id="logo" class="flex items-center ml-3">
+        <img  class="h-14" src="assets/images/Logo.png" alt="Logo" [routerLink]="''" />
     </div>
 
+    <input type="checkbox" id="check">
+    <label for="check" class="icons">
+        <i id="menu-icon" class='fa-solid fa-bars text-3xl text-[#e3f08f] cursor-pointe'></i>
+        <i id="close-icon" class='fa-solid fa-x text-3xl text-[#e3f08f] cursor-pointe'></i>
+
+    </label>
+
     <!--Navegación-->
-    <ul class="flex space-x-8">
-        <li>
+    <ul id="navbar"  class="flex md:space-x-8  space-x-0">
+        <li style="--i:0">
             <h2 (click)="goToRoute('product-list/frutas')">Frutas</h2>
         </li>
-        <li>
+        <li style="--i:1">
             <h2 (click)="goToRoute('product-list/verduras')">Verduras</h2>
         </li>
-        <li>
+        <li style="--i:2">
             <h2 (click)="goToRoute('product-list/carnes')">Carnes</h2>
         </li>
-        <li>
+        <li style="--i:3"> 
             <h2 (click)="goToRoute('about-us')">Sobre Nosotros</h2>
         </li>
     </ul>
 
     <!--Carrito y Login-->
-    <div class="flex items-center space-x-8 mr-5">
+    <div id="user-icons"  class="flex items-center space-x-8 mr-5">
         <h2 class="relative" (click)="goToRoute('shopping-cart')">
             <i class="fa-solid fa-cart-shopping text-3xl"></i>
             <span

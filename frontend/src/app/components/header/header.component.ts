@@ -1,11 +1,11 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ShoppingCart } from '../../models/shopping-cart';
 import { UserService } from '../../services/user.service';
-import { any } from 'three/webgpu';
 import { User } from '../../models/user';
+
 
 @Component({
   selector: 'app-header',
@@ -84,11 +84,4 @@ export class HeaderComponent implements OnInit {
 
 
 }
-
-
-window.addEventListener("scroll", function(){
-  var header = document.querySelector("header");
-  header?.classList.toggle("scrolled",window.scrollY>0);
-})
-
 

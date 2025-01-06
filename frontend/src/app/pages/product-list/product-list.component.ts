@@ -36,7 +36,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   currentPage: number = 1;
 
   constructor(
-    public shoppingCartService : ShoppingCartService,
+    public shoppingCartService: ShoppingCartService,
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private router: Router
@@ -148,14 +148,21 @@ export class ProductListComponent implements OnInit, OnDestroy {
         this.currentPage = this.querySelector.actualPage
       }
 
-      console.log(this.querySelector)
+      const productsPerPageElement = document.getElementById("products-per-page") as HTMLInputElement | HTMLSelectElement;
+      if (productsPerPageElement) {
+        this.querySelector.productPageSize = parseInt(productsPerPageElement.value);
+        this.querySelector.actualPage = 1;
+        this.currentPage = this.querySelector.actualPage;
+      }
+
+      console.log("QUERY SELECTOR :  " + this.querySelector)
+
+
 
       const result = await this.productService.getAllProducts(this.querySelector);
       this.allProducts = result?.products;
       this.totalProducts = result?.totalProducts ?? 0;
       this.totalPages = Math.ceil(this.totalProducts / this.querySelector.productPageSize);
-
-      //this.save = false;
 
       this.updatePaginationButtons();
     });
@@ -210,22 +217,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
     }
   }
 
-  saveCurrentPage()
-  {
+  saveCurrentPage() {
     this.currentPage = this.querySelector.actualPage;
     sessionStorage.setItem('currentPage', this.currentPage.toString());
   }
 
-  newNumberOfProducts() {
-    const productsPerPageElement = document.getElementById("products-per-page") as HTMLInputElement | HTMLSelectElement;
-    if (productsPerPageElement) {
-      sessionStorage.setItem('productsPerPage', productsPerPageElement.value.toString()); // Por si acaso, que luego falla
-      this.querySelector.productPageSize = parseInt(productsPerPageElement.value);
-      this.querySelector.actualPage = 1;
-      this.currentPage = this.querySelector.actualPage;
-      this.getAllProducts();
-    }
-  }
+
 
   order() {
     const orderBy = document.getElementById('order-by') as HTMLInputElement | HTMLSelectElement;
