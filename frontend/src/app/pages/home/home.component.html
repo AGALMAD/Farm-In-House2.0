@@ -1,8 +1,8 @@
-<header class="fixed top-[-100px] left-0 w-full block ">
+<header class="sticky top-0 left-0 z-50 w-full">
     <app-header></app-header>
 </header>
 
-<section class="main block mt-[4rem]">
+<section class="main block mt-[40px] bg-[#F5F5DC]">
     <section id="principal" class="relative flex justify-center items-start h-96 bottom-10">
         <!-- Imagen de fondo con filtro -->
         <div class="absolute inset-0 bg-cover bg-center z-0 filter blur-sm brightness-75"
@@ -12,21 +12,36 @@
         <div class="center text-right flex flex-col items-center mt-12 z-10">
             <h1 class="text-[#FFF9C4] text-5xl font-bold m-2">Farm In House</h1>
             <h3 class="text-[#FFF9C4] text-2xl m-2">Del campo a tu casa</h3>
-            <button
+            <button (click)="goToRoute('product-list/frutas')"
                 class="bg-[#FFF9C4] text-[#5e7767] text-xl font-bold m-3 p-2 rounded-md hover: transition duration-500 ease-in-out transform hover:scale-125">
                 Comprar
             </button>
         </div>
     </section>
 
-    <section id="products" class="flex justify-center items-center gap-5">   
-        @for (item of productArray; track $index) {
-            <!--Cards de cada clase de productos-->
-            <div class="border border-gray-500 p-4 w-80 h-80" (click)="goToRoute('product-list/${item.title}')">
-                <h1 class="capitalize text-center">{{item.title}}</h1>
+    <div class="m-6 w-auto sm:text-center text-left">
+        <h1 class="w-full text-center text-4xl text-[#253125] m-5 font-bold sm:text-2xl">
+            Productos ecológicos al mejor precio
+        </h1>
+        <h3 class="w-full text-center text-2xl text-[#253125] m-5 font-semibold sm:text-xl">
+            Haz tu pedido y recibe directamente del productor a tu puerta
+        </h3>
+    </div>
 
+    <section id="products" class="flex justify-center items-center gap-5">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 p-4">
+            <!--Lista de productos responsive sin media queries-->
+            @for (product of productArray; track product.title) {
+
+            <div (click)="goToRoute(product.rute)"
+                class="group block rounded shadow-4xl bg-[#253125] text-[#e3f08f] font-bold p-4 cursor-pointer hover:shadow-3xl transition-transform duration-300">
+                <p class="text-center text-2xl mb-4 capitalize">{{ product.title }}</p>
+
+                <div class="overflow-hidden w-full h-48">
+                    <img class="transform group-hover:scale-110 w-full h-full object-cover" [src]="product.imageUrl" />
+                </div>
             </div>
-        }
+            }
+        </div>
     </section>
 </section>
-

@@ -28,4 +28,19 @@
 }
 
 
+@media(max-width : 550px){
+    #ordination{
+        display: block;
+        
+    }
+
+    #ordination div{
+        width: 100%;
+        margin-bottom: 5%;
+    }
+
+    #ordination select{
+        width: 100%;
+    }
+}
 

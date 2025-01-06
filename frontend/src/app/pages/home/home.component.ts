@@ -15,14 +15,17 @@ export class HomeComponent {
     FRUIT: {
       title: 'frutas',
       imageUrl: '/assets/main/cesta-frutas.jpg',
+      rute : 'product-list/frutas'
     },
     VEGETABLE: {
       title: 'verduras',
       imageUrl: '/assets/main/cesta-verduras.jpg',
+      rute : 'product-list/verduras'
     },
     MEAT: {
       title: 'carnes',
       imageUrl: '/assets/main/carne-ecologica.jpg',
+      rute : 'product-list/carnes'
     },
   };
 
