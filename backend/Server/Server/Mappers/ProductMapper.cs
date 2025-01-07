@@ -5,20 +5,6 @@ namespace Server.Mappers;
 
 public class ProductMapper
 {
-    public IEnumerable<Product> AddCorrectPath(IEnumerable<Product> products)
-    {
-        foreach (Product product in products)
-        {
-            product.Image = "images/" + product.Image;
-        }
-        return products;
-    }
-
-    public Product AddCorrectPath(Product product)
-    {
-        product.Image = "images/" + product.Image; 
-        return product;
-    }
 
     public ProductDto ToDto(Product product)
     {
@@ -30,7 +16,7 @@ public class ProductMapper
             Category = product.Category,
             CategoryId = product.CategoryId,
             Description = product.Description,
-            Image = product.Image,
+            Images = product.Images,
             Price = product.Price,
             Reviews = product.Reviews,
             Stock = product.Stock
@@ -52,7 +38,7 @@ public class ProductMapper
             Category = productDto.Category,
             CategoryId = productDto.CategoryId,
             Description = productDto.Description,
-            Image = productDto.Image,
+            Images = productDto.Images,
             Price = productDto.Price,
             Reviews = productDto.Reviews,
             Stock = productDto.Stock

@@ -1,3 +1,9 @@
+header{
+    position: -webkit-sticky; /* Para compatibilidad con Safari */
+    position: sticky;
+    top: 0;
+}
+
 .body {
     min-height: 100vh;
     background-image: url("../../../../public/assets/images/campo.jpg");

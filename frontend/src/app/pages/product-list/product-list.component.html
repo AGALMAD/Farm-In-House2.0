@@ -1,15 +1,16 @@
-<div class="header">
+<header class="z-50 sticky top-0">
     <app-header></app-header>
-</div>
+</header>
 
-<div class="body">
-    <div class="sort-buttons">
-        <div class="search-bar">
-            <app-search-bar (newItemEvent)="getSearchedProducts($event)" [query]="this.querySelector.search"></app-search-bar>
+<section class="bg-[#F5F5DC] min-h-screen flex flex-col justify-center items-center pt-[50px]">
+    <div id="ordination" class="flex flex-row align-center justify-center gap-10 z-10 mb-10">
+        <div class="h-10 bg-[#253125] rounded-lg">
+            <app-search-bar (newItemEvent)="getSearchedProducts($event)"
+                [query]="this.querySelector.search"></app-search-bar>
         </div>
 
         <div>
-            <select id="order-by" (change)="order()">
+            <select id="order-by" class="bg-[#253125] text-[#e3f08f] h-10 rounded-lg p-2  cursor-pointer " (change)="order()">
                 <option value="name-asc">Nombre ascendente</option>
                 <option value="name-desc">Nombre descendiente</option>
                 <option value="price-asc">Precio ascendente</option>
@@ -19,56 +20,65 @@
     </div>
 
 
-    @if (allProducts != null){
-    <div id="product-list">
-        @for (product of allProducts; track product.id) {
+    @if (allProducts != null) {
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 p-4"> <!--Lista de productos responsive sin media queries-->
+            @for (product of allProducts; track product.id) {
 
-        <div class="product-card" >
-            <div class="product-card-name">{{product.name}}</div>
-            <div class="product-card-image"><img class="image" [src]="product.image.replace('images/images/images/images/', '/images/')"></div>
-            <div class="product-card-price">Precio : {{product.price | eurosToCents }}</div>
-            <p>Media de reseñas: {{ product.average | number:'1.1-1' }} <i class="fa-regular fa-star fa-flip fa-lg" style="color: #FFD43B;"></i></p>
-            @if (product.stock > 0) {
-            <div class="product-card-stock">Stock: {{ product.stock }} KG</div>
+                <div (click)="goToProduct(product.id)" class="group block rounded shadow-4xl bg-[#253125] text-[#e3f08f] font-bold p-4 cursor-pointer hover:shadow-3xl transition-transform duration-300">
+                    <p class="text-center text-2xl mb-4">{{ product.name }}</p>
+
+                    <div class="overflow-hidden w-full h-48">
+                        <img class="transform group-hover:scale-110 w-full h-full object-cover" [src]="product.images[0]">
+                    </div>
+
+                    <div class="flex flex-row gap-5 mt-4">
+                        @if (product.stock > 0) {
+                            <p class="flex-1 text-left">{{ product.stock }} KG</p>
+                        }
+                        @else {
+                            <div class="flex-2 text-left text-[#9A2215]">No hay stock</div>
+                        }
+                        <p class="flex-1 text-center">{{product.price | eurosToCents }} /kg</p>
+                        <p class="flex-1 text-right">{{ product.average | number:'1.1-1' }} <i class="fa-regular fa-star fa-flip fa-lg" style="color: #FFD43B;"></i> ({{ product.reviews.length }})</p>
+                    </div>
+
+                    <div class="flex justify-center items-center mt-5">
+                        <button class="bg-[#e3f08f] text-sm text-[#253125] p-2 rounded-lg hover:scale-110" (click)="shoppingCartService.addToCart(product)">Añadir <i class="fa-solid fa-cart-shopping text-sm"></i></button>
+                    </div>
+                </div>
             }
-            @else {
-            <div class="product-card-no-stock">No hay stock</div>
-            }
-            <button class="product-card-button" (click)="goToProduct(product.id)">Más detalles</button>
+
         </div>
-        }
-    </div>
     }@else {
-    <div class="loading">Cargando...</div>
+    <div class="loading ">Cargando...</div>
     }
-    @if (allProducts == null){
-    <div class="loading">No hay resultados</div>
+    @if (allProducts?.length == 0 || allProducts == null){
+    <img class=" block w-[30%] h-auto " src="/assets/productList/product-not-found.png" alt="product not found">
     }
 
-    <div class="pagination-position">
-        <div class="pagination">
-            <button (click)="goToFirstPage()" id="first-button">&lt;&lt;</button>
-            <button id="prev-button" (click)="previousPage()">&lt;</button>
-            <div id="pagination-numbers">
-                @if(totalPages == 0)
-                {
-                0 de 0
-                }
-                @else
-                {
-                {{ currentPage }} de {{ totalPages }}
-                }
-            </div>
-            <button id="next-button" (click)="nextPage()">&gt;</button>
-            <button (click)="goToLastPage()" id="last-button">&gt; &gt;</button>
-
-            <!-- Selector para elegir el número de productos por página -->
-            <select id="products-per-page" (change)="newNumberOfProducts()">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-            </select>
+    <div id="pagination"
+        class="bottom-0 mt-20 mb-2 rounded-md flex justify-center items-center bg-[#253125] text-[#e3f08f] font-bold p-4 gap-4">
+        <button (click)="goToFirstPage()" id="first-button">&lt;&lt;</button>
+        <button id="prev-button" (click)="previousPage()">&lt;</button>
+        <div id="pagination-numbers" class="text-[#e3f08f] ">
+            @if(totalPages == 0)
+            {
+            <p>0 de 0</p>
+            }
+            @else
+            {
+            <p>{{ currentPage }} de {{ totalPages }}</p>
+            }
         </div>
+        <button id="next-button" (click)="nextPage()">&gt;</button>
+        <button (click)="goToLastPage()" id="last-button">&gt; &gt;</button>
+
+        <!-- Selector para elegir el número de productos por página -->
+        <select class=" text-[#253125]" (change)="getAllProducts()">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
     </div>
-</div>
+</section>

@@ -1,44 +1,55 @@
-<div>
-    <div id="black">
-        @if(buttonChange) {
-            <i (click)="showMenu()" id="menu" class="fa-solid fa-bars"></i>
-            <h1 (click)="goToRoute('shopping-cart')"><i id="cart-responsive" class="fa-solid fa-cart-shopping"></i><span class="quantity-responsive">{{ shoppingCartService.contProduct }}</span></h1>
-        } @else {
-            <i (click)="closeMenu()" id="menu" class="fa-solid fa-xmark"></i>
-        }
-        
-        
-        <img id="logo" class="logo" src="assets/images/Logo.png" alt="Logo" [routerLink]="''">
-      
-        <h2 class="text"  (click)="goToRoute('product-list/frutas')">Frutas</h2>
-        <h2 class="text"  (click)="goToRoute('product-list/verduras')">Verduras</h2>
-        <h2 class="text"  (click)="goToRoute('product-list/carnes')">Carnes</h2>
-        <h2 class="text" (click)="goToRoute('about-us')">Sobre Nosotros</h2>
+<header class="top-0 z-[1000] flex items-center justify-between w-full h-[100px] p-4 bg-[#253125] text-[#e3f08f] font-bold">
+    
+    <!--Logo-->
+    <div id="logo" class="flex items-center ml-3 hover:scale-125">
+        <img  class="h-14" src="assets/images/Logo.png" alt="Logo" [routerLink]="''" />
+    </div>
 
-        @if(jwt != ""){
-            <h2 class="text-welcome">Bienvenido, {{ userService.userName }}</h2>
-            <h2 class="text" (click)="goToRoute('shopping-cart')"><i id="cart" class="fa-solid fa-cart-shopping"></i><span class="quantity">{{ shoppingCartService.contProduct }}</span></h2>
-            <div class="dropdown" (click)="showAndClose()">
-                @if(dropdownChange){
-                    <i id="arrow" class="fa-solid fa-chevron-down"></i>
-                }@else {
-                    <i id="arrow" class="fa-solid fa-chevron-up"></i>
-                }
-                <div class="dropdown-list">
-                    <div class="dropdown-list-button" (click)="goToRoute('user')">
-                        <p>Perfil</p>
-                    </div>
-                    <div class="dropdown-list-button" (click)="deleteToken()">
-                        <p>Cerrar sesión</p>
-                    </div>
-                </div>
-            </div>
-        }@else {
-            <h2 class="text" (click)="goToRoute('shopping-cart')"><i id="cart" class="fa-solid fa-cart-shopping"></i><span class="quantity">{{ shoppingCartService.contProduct }}</span></h2>
-            <div class="red" (click)="goToRoute('login')">
-                <i id="person-icon" class="fa-solid fa-user"></i>
-            </div>
+    <input type="checkbox" id="check">
+    <label for="check" class="icons">
+        <i id="menu-icon" class='fa-solid fa-bars text-3xl text-[#e3f08f] cursor-pointe'></i>
+        <i id="close-icon" class='fa-solid fa-x text-3xl text-[#e3f08f] cursor-pointe'></i>
+
+    </label>
+
+    <!--Navegación-->
+    <ul id="navbar"  class="flex md:space-x-8  space-x-0">
+        <li style="--i:0">
+            <h2 (click)="goToRoute('product-list/frutas')">Frutas</h2>
+        </li>
+        <li style="--i:1">
+            <h2 (click)="goToRoute('product-list/verduras')">Verduras</h2>
+        </li>
+        <li style="--i:2">
+            <h2 (click)="goToRoute('product-list/carnes')">Carnes</h2>
+        </li>
+        <li style="--i:3"> 
+            <h2 (click)="goToRoute('about-us')">Sobre Nosotros</h2>
+        </li>
+    </ul>
+
+    <!--Carrito y Login-->
+    <div id="user-icons"  class="flex items-center space-x-8 mr-5">
+        <h2 class="relative" (click)="goToRoute('shopping-cart')">
+            <i class="fa-solid fa-cart-shopping text-3xl"></i>
+            <span
+                class="bg-[#9A2215] text-[#FFFFFF] rounded-full absolute top-[-10px] left-6 p-3 size-4 flex justify-center items-center">
+                {{ shoppingCartService.contProduct }}
+            </span>
+        </h2>
+
+        @if (jwt != "") {
+        <h2 class="relative" (click)="goToRoute('login')">
+            <i class="fa-solid fa-user-alt text-3xl"></i>
+        </h2>
+        <h2 class="relative" (click)="deleteToken()">
+            <i class="fa-solid fa-sign-out-alt text-3xl"></i>
+        </h2>
+
+        } @else {
+        <h2 class="relative" (click)="deleteToken()">
+            <i id="person-icon" class="fa-solid fa-user-alt text-3xl text-[#9A2215]"></i>
+        </h2>
         }
     </div>
-</div>
-
+</header>

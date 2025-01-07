@@ -149,7 +149,7 @@ namespace Server
                             Name = "Naranja",
                             Description = "Naranja ecológica, rica en vitamina C, perfecta para zumos y postres.",
                             Price = 300,
-                            Stock = 150,
+                            Stock = 0,
                             Average = 0,
                             Images = new List<string>
                             {
@@ -203,7 +203,7 @@ namespace Server
                             Name = "Fresa",
                             Description = "Fresa ecológica, jugosa y dulce, perfecta para postres y batidos.",
                             Price = 400,
-                            Stock = 120,
+                            Stock = 0,
                             Average = 0,
                             Images = new List<string>
                             {
@@ -536,14 +536,14 @@ namespace Server
                         },
                         new Product
                         {
-                            Name = "Ternera",
+                            Name = "Chuletón De Ternera",
                             Description = "Ternera ecológica, rica en proteínas, perfecta para parrillas y guisos.",
                             Price = 800,
                             Stock = 80,
                             Average = 0,
                             Images = new List<string>
                             {
-                                "/images/ternera1.jpg",
+                                "/images/chuleton_ternera1.jpg",
                                 "/images/ternera2.jpg",
                                 "/images/ternera3.jpg",
                                 "/images/ternera4.jpg",
@@ -554,14 +554,14 @@ namespace Server
                         },
                         new Product
                         {
-                            Name = "Cerdo",
+                            Name = "Cinta De Lomo",
                             Description = "Cerdo ecológico, jugoso y sabroso, ideal para asar o freír.",
                             Price = 600,
                             Stock = 90,
                             Average = 0,
                             Images = new List<string>
                             {
-                                "/images/cerdo1.jpg",
+                                "/images/cinta_lomo1.jpg",
                                 "/images/cerdo2.jpg",
                                 "/images/cerdo3.jpg",
                                 "/images/cerdo4.jpg",
@@ -572,14 +572,14 @@ namespace Server
                         },
                         new Product
                         {
-                            Name = "Cordero",
+                            Name = "Chuletas De Cordero",
                             Description = "Cordero ecológico, tierno y delicioso, perfecto para asados.",
                             Price = 900,
                             Stock = 70,
                             Average = 0,
                             Images = new List<string>
                             {
-                                "/images/cordero1.jpg",
+                                "/images/chuleta_cordero1.jpg",
                                 "/images/cordero2.jpg",
                                 "/images/cordero3.jpg",
                                 "/images/cordero4.jpg",
@@ -626,14 +626,14 @@ namespace Server
                         },
                         new Product
                         {
-                            Name = "Buey",
+                            Name = "Entrecot De Buey",
                             Description = "Buey ecológico, carne tierna y sabrosa, ideal para parrillas.",
                             Price = 1000,
                             Stock = 50,
                             Average = 0,
                             Images = new List<string>
                             {
-                                "/images/buey1.jpg",
+                                "/images/entrecot-buey1.jpg",
                                 "/images/buey2.jpg",
                                 "/images/buey3.jpg",
                                 "/images/buey4.jpg",
